@@ -1,0 +1,24 @@
+name: validate-build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - name: Validate CSVs
+        run: python tools/validate.py
+      - name: Build disavow.txt
+        run: python tools/merge_and_build.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: disavow
+          path: build/disavow.txt

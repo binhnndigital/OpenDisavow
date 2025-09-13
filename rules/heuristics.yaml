@@ -1,0 +1,16 @@
+# Risk heuristics (example)
+keywords:
+  high_risk:
+    - casino
+    - porn
+    - viagra
+    - coupons
+signals:
+  ghost_referrer: 25
+  no_valid_http_pages: 20
+  high_4xx_5xx_ratio: 15
+  brand_mismatch: 10
+  mass_subdomains: 10
+score_thresholds:
+  recommend_review: 40
+  recommend_disavow: 70
