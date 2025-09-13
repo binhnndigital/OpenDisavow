@@ -65,6 +65,20 @@ python tools/merge_and_build.py
 
 ---
 
+## 📥 Import from TXT
+
+If you keep a plain `.txt` list (one domain per line), use the helper:
+
+```bash
+python tools/import_from_txt.py input/new_domains.txt \  --category spam --source community --evidence "Community report" --first-seen 2025-09-13
+python tools/validate.py
+python tools/merge_and_build.py
+```
+
+See `HOWTO_TXT_IMPORT.md` and `input/new_domains.txt` (sample).
+
+---
+
 ## 🤝 Contributing
 
 We welcome community contributions!
